@@ -1,0 +1,24 @@
+{
+  "name": "rando",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "password-generator": "^2.2.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "docker:build": "docker build -t rando .",
+    "docker:run": "docker run --name rando1 -p 49160:5000 -d rando",
+    "docker:it": "docker exec -it rando1 /bin/bash",
+    "view:local:api": "google-chrome http://localhost:5000/api/passwords",
+    "view:docker:api": "google-chrome http://localhost:49160/api/passwords",
+    "local:api": "concurrently \"npm run start\" \"npm run view:local:api\"",
+    "docker:api": "concurrently \"npm run view:docker:api\""
+  },
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
+}
