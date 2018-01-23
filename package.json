@@ -14,8 +14,10 @@
     "docker:it": "docker exec -it rando1 /bin/bash",
     "view:local:api": "google-chrome http://localhost:5000/api/passwords",
     "view:docker:api": "google-chrome http://localhost:49160/api/passwords",
+    "view:docker": "google-chrome http://localhost:49160",
     "local:api": "concurrently \"npm run start\" \"npm run view:local:api\"",
-    "docker:api": "concurrently \"npm run view:docker:api\""
+    "docker:api": "concurrently \"npm run view:docker:api\"",
+    "client:build": "cd client; npm run build"
   },
   "private": true,
   "devDependencies": {
